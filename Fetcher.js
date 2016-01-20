@@ -1,1 +1,1 @@
-module.exports = require('./dist/Fetcher.jsx');
+module.exports = require('./dist/Fetcher.js');
