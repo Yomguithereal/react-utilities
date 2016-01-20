@@ -12,7 +12,7 @@
  * resizes.
  */
 import React from 'react';
-import curry from 'lodahs/function/curry';
+import curry from 'lodash/function/curry';
 import debounce from 'lodash/function/debounce';
 
 const measured = function(opts, Component) {
