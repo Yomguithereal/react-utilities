@@ -4,7 +4,7 @@
   "description": "Some helpful utilities to work with React.",
   "main": "index.js",
   "scripts": {
-    "cards": "kotatsu serve --presets es2015,react,react-hmre -s --progress --index cards/index.html cards",
+    "cards": "kotatsu serve --presets es2015,react,react-hmre -s --progress --index cards/index.html --public cards cards",
     "dist": "babel src --out-dir dist",
     "lint": "eslint -c eslint.config.js src",
     "prepublish": "npm run dist",

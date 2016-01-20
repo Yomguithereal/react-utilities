@@ -31,7 +31,7 @@ const measured = function(opts, Component) {
 
     componentDidMount() {
       const milliseconds = opts.debounce !== null ?
-        opts.debounce || 300 :
+        opts.debounce || 300 :
         0;
 
       this.listener = debounce(() => this.handleResize(), milliseconds);

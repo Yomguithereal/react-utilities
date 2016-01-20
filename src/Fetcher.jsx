@@ -48,6 +48,6 @@ export default class Fetcher extends Component {
 }
 
 Fetcher.propTypes = {
-  reducer: PropTypes.function,
+  reducer: PropTypes.func,
   url: PropTypes.string.isRequired
 };
