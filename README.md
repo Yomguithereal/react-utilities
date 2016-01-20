@@ -22,9 +22,7 @@ import measured from '@yomguithereal/react-utilities/measured';
 
 const MeasuredComponent = measured({width: '100%', height: '50px', debounce: 300}, Component);
 
-// Using the decorator
-import measured from '@yomguithereal/react-utilities/measured-decorator';
-
+// Using as decorator
 @measured({width: '100%'})
 class {
   render() {

@@ -12,9 +12,10 @@
  * resizes.
  */
 import React from 'react';
+import curry from 'lodahs/function/curry';
 import debounce from 'lodash/function/debounce';
 
-export default function(opts, Component) {
+const measured = function(opts, Component) {
   if (!opts || (!opts.width && !opts.height))
     throw Error('measured: wrong arguments.');
 
@@ -63,4 +64,6 @@ export default function(opts, Component) {
       );
     }
   };
-}
+};
+
+export default curry(measured, 2);
