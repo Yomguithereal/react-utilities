@@ -26,7 +26,10 @@ export default class Fetcher extends Component {
       url
     });
 
-    call.fail(() => throw Error('Fetcher: could not retrieve data at ' + url));
+    // Throwing on error
+    call.fail(() => {
+      throw Error('Fetcher: could not retrieve data at ' + url)
+    });
 
     call.then(data => {
       this.setState({data: reducer(data)});
