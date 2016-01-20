@@ -14,11 +14,33 @@ export default class Fetcher extends Component {
   constructor(props, context) {
     super(props, context);
 
+    this.call = null;
+    this.rawData = null;
     this.state = {data: null};
   }
 
   componentDidMount() {
-    const {reducer = identity, url} = this.props;
+    this.fetch(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {url, reducer} = nextProps;
+
+    if (url !== this.props.url)
+      return this.fetch(nextProps);
+
+    if (reducer !== this.props.reducer &&
+        typeof reducer === 'function' &&
+        this.rawData) {
+      this.setState({data: reducer(this.rawData)});
+    }
+  }
+
+  fetch(props) {
+    if (this.call)
+      this.call.abort();
+
+    const {reducer = identity, url} = props;
 
     const call = djax({
       contentType: 'application/json',
@@ -32,8 +54,12 @@ export default class Fetcher extends Component {
     });
 
     call.then(data => {
+      this.call = null;
+      this.rawData = data;
       this.setState({data: reducer(data)});
     });
+
+    this.call = call;
   }
 
   render() {
