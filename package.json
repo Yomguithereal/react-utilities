@@ -6,7 +6,8 @@
   "scripts": {
     "dist": "babel src --out-dir dist",
     "lint": "eslint -c eslint.config.js *.js src",
-    "prepublish": "npm run dist"
+    "prepublish": "npm run dist",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
