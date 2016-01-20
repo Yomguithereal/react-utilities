@@ -30,7 +30,11 @@ const measured = function(opts, Component) {
     }
 
     componentDidMount() {
-      this.listener = debounce(() => this.handleResize(), opts.debounce || 300);
+      const milliseconds = opts.debounce !== null ?
+        opts.debounce || 300 :
+        0;
+
+      this.listener = debounce(() => this.handleResize(), milliseconds);
       window.addEventListener('resize', this.listener);
       this.listener();
     }
@@ -52,12 +56,23 @@ const measured = function(opts, Component) {
 
     render() {
       const {width, height} = this.state,
-            style = {width: opts.width, height: opts.height};
+            style = {},
+            sizes = {};
+
+      if (opts.width) {
+        style.width = opts.width;
+        sizes.width = width;
+      }
+
+      if (opts.height) {
+        style.height = opts.height;
+        sizes.height = height;
+      }
 
       return (
         <div style={style} ref={node => this.node = node}>
           {width !== null || height !== null ?
-            <Component width={width} height={height} {...this.props} /> :
+            <Component {...sizes} /> :
             null
           }
         </div>
