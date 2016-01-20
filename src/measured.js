@@ -15,7 +15,7 @@ import React from 'react';
 import debounce from 'lodash/function/debounce';
 
 export default function(opts, Component) {
-  if (!opts || (!opts.width || !opts.height))
+  if (!opts || (!opts.width && !opts.height))
     throw Error('measured: wrong arguments.');
 
   return class MeasuredComponent extends React.Component {
