@@ -56,7 +56,7 @@ const measured = function(opts, Component) {
 
       return (
         <div style={style} ref={node => this.node = node}>
-          {width && height ?
+          {width !== null || height !== null ?
             <Component width={width} height={height} {...this.props} /> :
             null
           }
