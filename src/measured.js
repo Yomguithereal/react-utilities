@@ -72,7 +72,7 @@ const measured = function(opts, Component) {
       return (
         <div style={style} ref={node => this.node = node}>
           {width !== null || height !== null ?
-            <Component {...sizes} /> :
+            <Component {...sizes} {...this.props} /> :
             null
           }
         </div>
