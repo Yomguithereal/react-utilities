@@ -12,8 +12,8 @@
  * resizes.
  */
 import React from 'react';
-import curry from 'lodash/function/curry';
-import debounce from 'lodash/function/debounce';
+import curry from 'lodash/curry';
+import debounce from 'lodash/debounce';
 
 const measured = function(opts, Component) {
   if (!opts || (!opts.width && !opts.height))

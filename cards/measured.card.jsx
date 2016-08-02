@@ -1,4 +1,4 @@
-import devcards from 'devcards';
+import devboard from 'devboard';
 import React, {Component} from 'react';
 import measured from '../src/measured';
 
@@ -17,7 +17,7 @@ class Snitch extends Component {
 const MeasuredSnitch = measured({width: '100%'}, Snitch);
 const NoDebounceMeasuredSnitch = measured({width: '100%', debounce: null}, Snitch);
 
-const devcard = devcards.ns('measured');
+const devcard = devboard.ns('measured');
 
 devcard(
   `

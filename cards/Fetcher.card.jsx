@@ -1,8 +1,8 @@
-import devcards from 'devcards';
+import devboard from 'devboard';
 import React, {Component} from 'react';
 import Fetcher from '../src/Fetcher.jsx';
 
-const devcard = devcards.ns('Fetcher');
+const devcard = devboard.ns('Fetcher');
 
 class Logger extends Component {
   render() {
@@ -67,6 +67,32 @@ devcard(
   `,
   (
     <Fetcher url="/data.json" reducer={reducer}>
+      <Logger />
+    </Fetcher>
+  )
+);
+
+devcard(
+  'Custom Parameters',
+  `
+  One can also use custom parameters passed to the **djax** library (jQuery-like
+  ajax) if needed.
+
+  ~~~jsx
+  const params = {
+    url: '/data/list.xml',
+    dataType: 'xml'
+  };
+
+  const group = (
+    <Fetcher params={params}>
+      <DataViz />
+    </Fetcher>
+  );
+  ~~~
+  `,
+  (
+    <Fetcher params={{url: '/data.xml', dataType: 'xml'}}>
       <Logger />
     </Fetcher>
   )

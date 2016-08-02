@@ -42,7 +42,7 @@ export default class Fetcher extends Component {
 
     const {reducer = identity, url} = props;
 
-    const call = djax({
+    const call = djax(props.params || {
       contentType: 'application/json',
       dataType: 'json',
       url
@@ -74,6 +74,7 @@ export default class Fetcher extends Component {
 }
 
 Fetcher.propTypes = {
+  params: PropTypes.object,
   reducer: PropTypes.func,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string
 };
