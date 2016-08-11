@@ -29,7 +29,7 @@ export default class Fetcher extends Component {
     if (url !== this.props.url)
       return this.fetch(nextProps);
 
-    if (params !== this.props.params)
+    if (params && this.props.params && params.url !== this.props.params.url)
       return this.fetch(nextProps);
 
     if (reducer !== this.props.reducer &&
