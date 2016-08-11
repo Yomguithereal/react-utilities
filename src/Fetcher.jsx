@@ -24,9 +24,12 @@ export default class Fetcher extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {url, reducer} = nextProps;
+    const {url, params, reducer} = nextProps;
 
     if (url !== this.props.url)
+      return this.fetch(nextProps);
+
+    if (params !== this.props.params)
       return this.fetch(nextProps);
 
     if (reducer !== this.props.reducer &&
