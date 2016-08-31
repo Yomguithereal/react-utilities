@@ -1,6 +1,6 @@
 {
   "name": "@yomguithereal/react-utilities",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Some helpful utilities to work with React.",
   "main": "index.js",
   "scripts": {

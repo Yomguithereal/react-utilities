@@ -36,7 +36,7 @@ const measured = function(opts, Component) {
 
       this.listener = debounce(() => this.handleResize(), milliseconds);
       window.addEventListener('resize', this.listener);
-      this.listener();
+      this.handleResize();
     }
 
     componentWillUnmount() {
