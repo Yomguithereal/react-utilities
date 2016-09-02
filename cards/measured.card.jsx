@@ -15,8 +15,8 @@ class Snitch extends Component {
   }
 }
 
-const MeasuredSnitch = measured({width: '100%',height: '100%'}, Snitch);
-const NoDebounceMeasuredSnitch = measured({width: '100%', debounce: null}, Snitch);
+const MeasuredSnitch = measured({width: '100%', height: '100%'}, Snitch);
+const NoDebounceMeasuredSnitch = measured({width: '100%', height: '100%', debounce: null}, Snitch);
 
 const devcard = devboard.ns('measured');
 
