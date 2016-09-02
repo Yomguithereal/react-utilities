@@ -9,12 +9,13 @@ class Snitch extends Component {
     return (
       <div>
         <p>My container's width is <strong>{width}</strong> pixels.</p>
+        <p>My container's height is <strong>{height}</strong> pixels.</p>
       </div>
     );
   }
 }
 
-const MeasuredSnitch = measured({width: '100%'}, Snitch);
+const MeasuredSnitch = measured({width: '100%',height: '100%'}, Snitch);
 const NoDebounceMeasuredSnitch = measured({width: '100%', debounce: null}, Snitch);
 
 const devcard = devboard.ns('measured');
